@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8832643747181826746}
   - component: {fileID: 8832643747181826747}
   - component: {fileID: 8832643747181826743}
-  - component: {fileID: 9131915015735763141}
+  - component: {fileID: 8832643746831209649}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -114,7 +114,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 19c2ca54199d348c0a879cc319d2fdc2, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.005, y: 0.01}
@@ -135,7 +135,11 @@ MonoBehaviour:
   paddle: {fileID: 0}
   xPush: 2
   yPush: 15
---- !u!82 &9131915015735763141
+  audioClips:
+  - {fileID: 8300000, guid: d81ca009f61b04a529d15ee71730e3ef, type: 3}
+  - {fileID: 8300000, guid: 9c514847160764fd0aa9eb4c5ab2c95e, type: 3}
+  - {fileID: 8300000, guid: 5e79defb1659b4f8eafe11779c697879, type: 3}
+--- !u!82 &8832643746831209649
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,7 +149,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dd512783828004361b7f3ddadf128078, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
