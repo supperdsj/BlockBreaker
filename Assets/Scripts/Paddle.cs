@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Paddle : MonoBehaviour {
-    [SerializeField] float screenWidthInUnits;
-    [SerializeField] float unitSize;
+    [SerializeField] float screenWidthInUnits = 0;
+    [SerializeField] float unitSize = 0;
 
     // Update is called once per frame
     void Update() {

@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 
 public class Ball : MonoBehaviour {
-    [SerializeField] Paddle paddle;
+    [SerializeField] Paddle paddle = null;
     [SerializeField] float xPush = 2f;
     [SerializeField] float yPush = 15f;
-    
+
     Vector2 paddleToBallVector;
     bool hasStarted;
 
@@ -25,7 +25,7 @@ public class Ball : MonoBehaviour {
     void LaunchOnMouseClick() {
         if (Input.GetMouseButtonDown(0)) {
             hasStarted = true;
-            GetComponent<Rigidbody2D>().velocity=new Vector2(xPush,yPush);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(xPush, yPush);
         }
     }
 
