@@ -9,7 +9,7 @@ public class Ball : MonoBehaviour {
     [SerializeField] float yPush = 15f;
     
     Vector2 paddleToBallVector;
-    bool hasStarted = false;
+    bool hasStarted;
 
     void Start() {
         paddleToBallVector = transform.position - paddle.transform.position;
