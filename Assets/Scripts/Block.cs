@@ -14,9 +14,11 @@ public class Block : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
+        FindObjectOfType<GameStatus>().AddToScore();
+        level.BlockDestroyed();
+        
         // AudioSource.PlayClipAtPoint(breakSound,Camera.main.transform.position);
         AudioSource.PlayClipAtPoint(breakSound,gameObject.transform.position);
         Destroy(gameObject);
-        level.BlockDestroyed();
     }
 }
