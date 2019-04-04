@@ -7,6 +7,9 @@ using UnityEngine;
 public class Block : MonoBehaviour {
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject sparklesVFX;
+    [SerializeField] int maxHits;
+    [SerializeField] int timesHit = 0;
+    [SerializeField] Sprite[] hitSprites;
     Level level;
 
     void Start() {
@@ -18,14 +21,33 @@ public class Block : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision) {
         if (tag == "Breakable") {
-            FindObjectOfType<GameStatus>().AddToScore();
-            level.BlockDestroyed();
-
-            // AudioSource.PlayClipAtPoint(breakSound,Camera.main.transform.position);
-            AudioSource.PlayClipAtPoint(breakSound, gameObject.transform.position);
-            Destroy(gameObject);
-            TriggerSparklesVFX();
+            timesHit++;
+            if (timesHit >= maxHits) {
+                DestroyBlock();
+            }
+            else {
+                ShowNextHitSprite();
+            }
         }
+    }
+
+    void ShowNextHitSprite() {
+        if (hitSprites[timesHit - 1] != null) {
+            GetComponent<SpriteRenderer>().sprite = hitSprites[timesHit - 1];
+        }
+        else {
+            GetComponent<SpriteRenderer>().sprite = hitSprites[hitSprites.Length - 1];
+        }
+    }
+
+    void DestroyBlock() {
+        FindObjectOfType<GameStatus>().AddToScore();
+        level.BlockDestroyed();
+
+        // AudioSource.PlayClipAtPoint(breakSound,Camera.main.transform.position);
+        AudioSource.PlayClipAtPoint(breakSound, gameObject.transform.position);
+        Destroy(gameObject);
+        TriggerSparklesVFX();
     }
 
     void TriggerSparklesVFX() {
