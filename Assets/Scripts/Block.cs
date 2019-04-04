@@ -17,5 +17,6 @@ public class Block : MonoBehaviour {
         // AudioSource.PlayClipAtPoint(breakSound,Camera.main.transform.position);
         AudioSource.PlayClipAtPoint(breakSound,gameObject.transform.position);
         Destroy(gameObject);
+        level.BlockDestroyed();
     }
 }
