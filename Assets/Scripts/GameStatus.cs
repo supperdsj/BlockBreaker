@@ -13,7 +13,8 @@ public class GameStatus : MonoBehaviour {
 
     void Awake() {
         int gameStatusCount = FindObjectsOfType<GameStatus>().Length;
-        if (gameStatusCount>1) {
+        if (gameStatusCount > 1) {
+            gameObject.SetActive(false);
             Destroy(gameObject);
         }
         else {
