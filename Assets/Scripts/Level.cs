@@ -5,11 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour {
     [SerializeField] int breakableBlocks;
-    SceneLoader sceneLoader;
-
-    void Start() {
-        sceneLoader = FindObjectOfType<SceneLoader>();
-    }
 
     public void CountBreakableBlocks() {
         breakableBlocks++;
@@ -18,7 +13,7 @@ public class Level : MonoBehaviour {
     public void BlockDestroyed() {
         breakableBlocks--;
         if (breakableBlocks <= 0) {
-            sceneLoader.LoadNextScene();
+            FindObjectOfType<SceneLoader>().LoadNextScene();
         }
     }
 }

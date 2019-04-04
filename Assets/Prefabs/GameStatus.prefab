@@ -48,6 +48,7 @@ MonoBehaviour:
   scorePreBlockDestroyed: 100
   currentScore: 0
   scoreText: {fileID: 6690486291113455404}
+  isAutoPlayEnabled: 1
 --- !u!1001 &1296849245205472140
 PrefabInstance:
   m_ObjectHideFlags: 0
