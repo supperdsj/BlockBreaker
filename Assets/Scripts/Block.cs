@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 
 public class Block : MonoBehaviour {
     [SerializeField] AudioClip breakSound;
-
+    [SerializeField] GameObject sparklesVFX;
     Level level;
 
     void Start() {
@@ -20,5 +21,11 @@ public class Block : MonoBehaviour {
         // AudioSource.PlayClipAtPoint(breakSound,Camera.main.transform.position);
         AudioSource.PlayClipAtPoint(breakSound,gameObject.transform.position);
         Destroy(gameObject);
+        TriggerSparklesVFX();
+    }
+
+    void TriggerSparklesVFX() {
+        GameObject sparkles = Instantiate(sparklesVFX,transform.position,transform.rotation);
+        Destroy(sparkles,2f);
     }
 }
